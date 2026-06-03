@@ -12,20 +12,21 @@ import { FormsModule } from '@angular/forms';
 export class DashboardComponent {
 
   selectedCategory = 'Users';
-
   rangeValue = 50;
-
   searchText = '';
 
-  categories = [
-    'Users',
-    'Sales',
-    'Orders'
-  ];
+  message = 'Users Data Selected';
 
-  users = [
-    { id: 1, name: 'Gayatri', city: 'Nagpur' },
-    { id: 2, name: 'Rahul', city: 'Pune' },
-    { id: 3, name: 'Priya', city: 'Mumbai' }
-  ];
+  updateDashboard() {
+
+    if (this.selectedCategory === 'Users') {
+      this.message = 'Users Data Selected';
+    }
+    else if (this.selectedCategory === 'Sales') {
+      this.message = 'Sales Data Selected';
+    }
+    else {
+      this.message = 'Orders Data Selected';
+    }
+  }
 }

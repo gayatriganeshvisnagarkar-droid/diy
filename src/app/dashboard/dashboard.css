@@ -32,3 +32,16 @@ td {
   padding: 10px;
   text-align: center;
 }
+.section {
+  margin: 20px 0;
+}
+
+input,
+select {
+  padding: 8px;
+  margin-left: 10px;
+}
+
+h1 {
+  text-align: center;
+}

@@ -4,14 +4,18 @@
 <div class="section">
   <label>Select Category:</label>
 
-  <select [(ngModel)]="selectedCategory">
-    <option *ngFor="let category of categories">
-      {{ category }}
-    </option>
-  </select>
+  <select
+    [(ngModel)]="selectedCategory"
+    (change)="updateDashboard()">
 
-  <p>Selected: {{ selectedCategory }}</p>
+    <option>Users</option>
+    <option>Sales</option>
+    <option>Orders</option>
+
+  </select>
 </div>
+
+<br>
 
 <!-- Slider -->
 <div class="section">
@@ -23,35 +27,23 @@
     max="100"
     [(ngModel)]="rangeValue">
 
-  <p>Value: {{ rangeValue }}</p>
+  <p>Selected Range: {{ rangeValue }}</p>
 </div>
 
-<!-- Input Field -->
+<br>
+
+<!-- Input -->
 <div class="section">
   <label>Search:</label>
 
   <input
     type="text"
-    placeholder="Enter name"
-    [(ngModel)]="searchText">
+    [(ngModel)]="searchText"
+    placeholder="Enter text">
 
-  <p>You entered: {{ searchText }}</p>
+  <p>Search Value: {{ searchText }}</p>
 </div>
 
 <hr>
 
-<h2>User Data</h2>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>City</th>
-  </tr>
-
-  <tr *ngFor="let user of users">
-    <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.city }}</td>
-  </tr>
-</table>
+<h2>{{ message }}</h2>
