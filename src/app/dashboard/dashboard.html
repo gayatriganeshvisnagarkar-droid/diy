@@ -1,49 +1,99 @@
-<h1>Interactive Dashboard</h1>
+<h1>Multi-Page Dashboard</h1>
 
-<!-- Dropdown -->
-<div class="section">
-  <label>Select Category:</label>
+<div class="tabs">
 
-  <select
-    [(ngModel)]="selectedCategory"
-    (change)="updateDashboard()">
+  <button (click)="showTab('overview')">
+    Overview
+  </button>
 
-    <option>Users</option>
-    <option>Sales</option>
-    <option>Orders</option>
+  <button (click)="showTab('sales')">
+    Sales
+  </button>
 
-  </select>
-</div>
+  <button (click)="showTab('users')">
+    Users
+  </button>
 
-<br>
-
-<!-- Slider -->
-<div class="section">
-  <label>Range:</label>
-
-  <input
-    type="range"
-    min="0"
-    max="100"
-    [(ngModel)]="rangeValue">
-
-  <p>Selected Range: {{ rangeValue }}</p>
-</div>
-
-<br>
-
-<!-- Input -->
-<div class="section">
-  <label>Search:</label>
-
-  <input
-    type="text"
-    [(ngModel)]="searchText"
-    placeholder="Enter text">
-
-  <p>Search Value: {{ searchText }}</p>
 </div>
 
 <hr>
 
-<h2>{{ message }}</h2>
+<!-- Overview Page -->
+<div *ngIf="currentTab === 'overview'">
+
+  <h2>Overview Dashboard</h2>
+
+  <div class="card">
+    <h3>Total Users</h3>
+    <p>1250</p>
+  </div>
+
+  <div class="card">
+    <h3>Total Orders</h3>
+    <p>320</p>
+  </div>
+
+</div>
+
+<!-- Sales Page -->
+<div *ngIf="currentTab === 'sales'">
+
+  <h2>Sales Analysis</h2>
+
+  <table>
+    <tr>
+      <th>Month</th>
+      <th>Sales</th>
+    </tr>
+
+    <tr>
+      <td>January</td>
+      <td>₹20,000</td>
+    </tr>
+
+    <tr>
+      <td>February</td>
+      <td>₹25,000</td>
+    </tr>
+
+    <tr>
+      <td>March</td>
+      <td>₹30,000</td>
+    </tr>
+  </table>
+
+</div>
+
+<!-- Users Page -->
+<div *ngIf="currentTab === 'users'">
+
+  <h2>User Details</h2>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>City</th>
+    </tr>
+
+    <tr>
+      <td>1</td>
+      <td>Gayatri</td>
+      <td>Nagpur</td>
+    </tr>
+
+    <tr>
+      <td>2</td>
+      <td>Rahul</td>
+      <td>Pune</td>
+    </tr>
+
+    <tr>
+      <td>3</td>
+      <td>Priya</td>
+      <td>Mumbai</td>
+    </tr>
+
+  </table>
+
+</div>
