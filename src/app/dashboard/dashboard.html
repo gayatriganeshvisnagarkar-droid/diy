@@ -1,13 +1,48 @@
-<h1>Dashboard</h1>
+<h1>Interactive Dashboard</h1>
 
-<div class="card">
-  <h3>Total Users</h3>
-  <p>1250</p>
+<!-- Dropdown -->
+<div class="section">
+  <label>Select Category:</label>
+
+  <select [(ngModel)]="selectedCategory">
+    <option *ngFor="let category of categories">
+      {{ category }}
+    </option>
+  </select>
+
+  <p>Selected: {{ selectedCategory }}</p>
 </div>
 
-<h2>User Information</h2>
+<!-- Slider -->
+<div class="section">
+  <label>Range:</label>
 
-<table border="1">
+  <input
+    type="range"
+    min="0"
+    max="100"
+    [(ngModel)]="rangeValue">
+
+  <p>Value: {{ rangeValue }}</p>
+</div>
+
+<!-- Input Field -->
+<div class="section">
+  <label>Search:</label>
+
+  <input
+    type="text"
+    placeholder="Enter name"
+    [(ngModel)]="searchText">
+
+  <p>You entered: {{ searchText }}</p>
+</div>
+
+<hr>
+
+<h2>User Data</h2>
+
+<table>
   <tr>
     <th>ID</th>
     <th>Name</th>
