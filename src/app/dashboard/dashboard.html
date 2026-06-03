@@ -1,0 +1,22 @@
+<h1>Dashboard</h1>
+
+<div class="card">
+  <h3>Total Users</h3>
+  <p>1250</p>
+</div>
+
+<h2>User Information</h2>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>City</th>
+  </tr>
+
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.city }}</td>
+  </tr>
+</table>
